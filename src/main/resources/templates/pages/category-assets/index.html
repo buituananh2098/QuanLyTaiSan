@@ -40,15 +40,7 @@
                                     <th>Xoá</th>
                                 </tr>
                                 </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>ID</th>
-                                    <th>Tên danh mục</th>
-                                    <th>Sửa</th>
-                                    <th>Xoá</th>
-                                </tr>
-                                </tfoot>
+
                                 <tbody>
                                 <tr th:each="empl,iterStat : ${cate}">
                                     <th scope="row" th:text="${iterStat.count}"></th>
