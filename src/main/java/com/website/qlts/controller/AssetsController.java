@@ -2,6 +2,7 @@ package com.website.qlts.controller;
 
 import com.sun.org.apache.xpath.internal.SourceTree;
 import com.website.qlts.entity.Assets;
+import com.website.qlts.entity.RepairsHistory;
 import com.website.qlts.entity.Suppliers;
 import com.website.qlts.repository.CategoryAssetsRepository;
 import com.website.qlts.repository.DepartmentsRepository;
@@ -191,4 +192,17 @@ public class AssetsController {
         assetsView.setGroupAssetsList(groupAssetsService.getAll());
         return assetsView;
     }
+
+    @RequestMapping(value = "/createRepairsHistory")
+    public String createRepairsHistory(Model model,String keyWord) {
+        RepairsHistory repairsHistory = new RepairsHistory();
+        AssetsView assets = new AssetsView();
+        if(keyWord != null){
+
+            assets.setAssetsList(assetsService.getByName(keyWord));
+            model.addAttribute("model",assets);
+        }
+        return "pages/assets/createRepairsHistory";
+    }
+
 }
